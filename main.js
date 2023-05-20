@@ -80,12 +80,12 @@ const lastedTenYears = companies.filter(company => (company.end - company.start 
 }); */
 
 
-const testMap = companies.map(company => `${company.name} [${company.start} - ${company.end}]`);
+/* const testMap = companies.map(company => `${company.name} [${company.start} - ${company.end}]`);
 
 
-const ageMap = ages
+ /* const ageMap = ages
 .map(age => Math.sqrt(age))
-.map(age => age * 2);
+.map(age => age * 2); */
 
 
   //sort 
@@ -100,12 +100,12 @@ const ageMap = ages
     }
   }); */
 
-  const sortedCompanies = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
+   // const sortedCompanies = companies.sort((a, b) => (a.start > b.start ? 1 : -1));
 
 
   //Sort Ages
 
-  const sortAges = ages.sort((a,b) => a - b);
+  // const sortAges = ages.sort((a,b) => a - b);
 
 
   //reduce
@@ -119,7 +119,7 @@ const ageMap = ages
         return total + age;
    }, 0);*/
 
-   const ageSum = ages.reduce((total, age) => total + age, 0);
+   //const ageSum = ages.reduce((total, age) => total + age, 0);
 
 
    //Get total years for all companies
@@ -130,6 +130,14 @@ const ageMap = ages
 
    const totalYears = companies.reduce((total, company) => total + (company.end - company.start),0)
 
-   console.table(totalYears);
+   // Combine Methods
+
+   const combined = ages
+    .map(age => age * 2)
+    .filter(age => age >= 40)
+    .sort((a, b) => a - b)
+    .reduce((a, b) => a + b, 0);
+
+    console.table(combined);
 
 
